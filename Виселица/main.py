@@ -94,8 +94,12 @@ while tries > 1:
             time.sleep(1)
 
 while tries == 1:
+    if symbols == symbols_guessed:
+        loading_bar()
+        print('\r \nПоздравляю, вы выиграли !')
+        break
+        
     letter = str(input('\nВведите букву: ').lower())
-
     found = False
 
     for i in range(len(word)):
@@ -123,7 +127,7 @@ while tries == 1:
             print(f'\nБуква выбрана неверно, к сожалению, вы проиграли !')
             loading_bar()
             print(f'\r \nСлово, которое вы не угадали: {"".join(word)}', end='')
-        break
+            break
     else:
         if len(letter) > 1:
             print(f'\nВам нужно ввести не более одного символа !')
